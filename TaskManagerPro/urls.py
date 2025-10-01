@@ -21,8 +21,8 @@ from TaskManagerApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.HomeView,name='home'),
-    path('add/',views.AddTaskView,name='add_task'),
-    path('list/',views.ListTaskView,name='list_task'),
-    path('update/<int:pk>/',views.UpdateTaskView,name='update_task'),
-    path('delete/<int:pk>/',views.DeleteTaskView,name='delete_task')
+    path('add/',views.AddTask,name='add_task'),
+    path('list/',views.ListTask,name='list_task'),
+    path('update/<int:pk>/',views.UpdateTask,name='update_task'),
+    path('delete/<int:pk>/',views.DeleteTask,name='delete_task')
 ]

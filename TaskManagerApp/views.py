@@ -7,7 +7,7 @@ def HomeView(request):
     return render (request,'home.html')
 
 #Create task
-def AddTaskView(request):
+def AddTask(request):
     if request.method=='POST':
         name=request.POST['name']
         description=request.POST['description']
@@ -19,13 +19,13 @@ def AddTaskView(request):
     return render(request,'task_form.html')
 
 #view task
-def ListTaskView(request):
+def ListTask(request):
     data=TaskManager.objects.all()
     return render(request,'task_list.html',{'tasks':data})
 
 
 #Update task
-def UpdateTaskView(request,pk):
+def UpdateTask(request,pk):
     data=TaskManager.objects.get(id=pk)
     if request.method=='POST':
         data.name=request.POST['name']
@@ -38,7 +38,7 @@ def UpdateTaskView(request,pk):
     return render(request,'task_update.html',{'tasks':data})
 
 #Delete task
-def DeleteTaskView(request,pk):
+def DeleteTask(request,pk):
     data=TaskManager.objects.get(id=pk)
     data.delete()
     return redirect('list_task')
